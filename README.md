@@ -36,7 +36,7 @@ $symfony server:start
   ...  
 $symfony open:local  
 
-Start dump:
+Start dump:  
 $php bin/console server:dump
 
 

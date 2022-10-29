@@ -44,6 +44,7 @@ class Mastermind implements iMastermind
     public function test($essai){
         $cessai=$essai; // copie car modifié	
         $ccode=$this->code; // copie car modifié
+        $res=array_fill_keys(array("bon", "mal"), 0);
         if(!$this->valide($essai)) {
             $res=array("bon"=>0, "mal"=>0);
             return false;
@@ -66,7 +67,7 @@ class Mastermind implements iMastermind
             }
         } // fin de boucle des mals placés
         $this->lessai[$essai]=$res;
-        if($this->lessai[$essai]["bon"]===getTaille() && 
+        if($this->lessai[$essai]["bon"]===$this->getTaille() && 
             $this->lessai[$essai]["mal"]===0) {
             $this->isFini = true;
         }
@@ -99,19 +100,19 @@ class Mastermind implements iMastermind
 
     public function serialize()
     {
-        // return serialize(array(
-        //     $this->id,
-        //     $this->username,
-        //     $this->password,
-        // ));
+        return serialize(array(
+            $this->code,
+            $this->lessai,
+            $this->isFini,
+        ));
     }
 
     public function unserialize($serialized)
     {
-        // list (
-        //     $this->id,
-        //     $this->username,
-        //     $this->password,
-        // ) = unserialize($serialized);
+        list (
+            $this->code,
+            $this->lessai,
+            $this->isFini,
+        ) = unserialize($serialized);
     }
 }

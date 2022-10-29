@@ -18,23 +18,27 @@
       <th align="left" valign="middle">Mal plac&eacute;(s)</th>
     </tr>
     {% set i = 1 %}
-    {% for essai in lessai %}
+    {% for key, value in lessai %}
       <tr>
         <td>{{ i }}</td>
-        <td>{{ essai }}</td>
-        <td>{{ essai.bon }}</td>
-        <td>{{ essai.mal }}</td>
+        <td>{{ key }}</td>
+        <td>{{ value.bon }}</td>
+        <td>{{ value.mal }}</td>
       </tr>
       {% set i = i + 1 %}
     {% endfor %}
 
     {% if isFini %}
-      <p>GAGNÉ!</p>
-      <input type="submit" name="nouveau" value="Nouveau Jeu!">
+      <tr>
+        <td></td>
+        <td>GAGNÉ!</td>
+        <td><input type="submit" name="nouveau" value="Nouveau Jeu!"></td>
+        <td></td>
+      </tr>
     </table>
     <p>Félicitations, vous avez gagné !</p>
     {% else %}
-      {# {% if valide %} #}
+      
       <tr>
         <td>{{ i }}</td>
         <td><input type="text" name="prop" autofocus size={{ taille }}/></td>
@@ -42,6 +46,9 @@
         <td></td>
       </tr>
     </table>
+      {% if valide == false %}
+        <p>Incorrect {{ essai }}</p>
+      {% endif %}
     <p>Veuillez saisir une proposition S.V.P !</p>
 
     {% endif %}
