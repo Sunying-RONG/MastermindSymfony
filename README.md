@@ -1,15 +1,4 @@
 # MasterMindSymfony
-symfony : php object, class et méthod. php framework  
-angular : javascript -> typescript : js avec class. javascript framework  
-
-symfony 5 - 6 change syntaxe  
-php  
-session : table of history,  
-start session  
-
-Connect mysql :  
-mysql -h prodpeda-mysql2.infra.umontpellier.fr -u e20210011437 -p e20210011437  
-password : sunying  
 
 Start php project, without symfony:  
 $cd MasterMind  
